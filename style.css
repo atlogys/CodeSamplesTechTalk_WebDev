@@ -1,0 +1,135 @@
+.grid section[role=main] {
+	margin-left: 120px;
+}
+/* Simple */
+.grid #simple > div { 
+	display: -ms-grid;
+	-ms-grid-columns: 250px 250px;
+	-ms-grid-rows: 250px 250px;
+}
+.grid #simple > div > div {
+	border: 1px solid gray;
+}
+.grid #simple > div > div:nth-child(2) { -ms-grid-column: 2; -ms-grid-row: 1;}
+.grid #simple > div > div:nth-child(3) { -ms-grid-row: 2;}
+.grid #simple > div > div:nth-child(4) { -ms-grid-column: 2; -ms-grid-row: 2;}
+
+/* Rowspans */
+.grid #rowspans > div { 
+	display: -ms-grid;
+	-ms-grid-columns: 100px 1fr 100px;
+	-ms-grid-rows: 100px 1fr 100px;
+	width: 600px;
+	height: 600px;
+}
+.grid #rowspans > div > div:nth-child(1) { -ms-grid-column: 1; -ms-grid-row: 1; -ms-grid-row-span: 2; border:1px solid #063}
+.grid #rowspans > div > div:nth-child(2) { -ms-grid-column: 2; -ms-grid-row: 2; -ms-grid-column-span: 2;  border:1px solid #F00}
+.grid #rowspans > div > div:nth-child(3) { -ms-grid-column: 2; -ms-grid-row: 3;  -ms-grid-column-span: 2;  border:1px solid #00F}
+.grid #rowspans > div > div:nth-child(4) { -ms-grid-column: 1; -ms-grid-row: 3;  -ms-grid-column-span: 4;  border:1px solid #00F}
+
+
+/*Animations*/
+.main
+{
+	width:980px;
+	margin:0 auto;
+	text-align:center;
+	padding:50px;
+}
+#pic {
+	width: 100px;
+	transition: all 1s;
+}
+
+#pic:hover {
+	transform: scale(2) translate(50px, 50px) rotate(10deg);
+}
+.animation-get-angry {
+   -webkit-animation-name: get-angry; /* Safari */
+    -webkit-animation-duration: 5s; /* Safari */    
+    animation-name: get-angry;
+    animation-duration: 5s;
+	width:200px;
+	height:200px;
+	padding-top: 50px;
+	text-align:center;
+	-webkit-animation-fill-mode: forwards; /* Chrome, Safari, Opera */
+    animation-fill-mode: forwards;/*
+	-webkit-animation-iteration-count: 3; /* Chrome, Safari, Opera */
+    animation-iteration-count: 3;*/
+}
+@-webkit-keyframes get-angry {
+	0% { box-shadow: 1px 1px 1px 1px #000; text-shadow: 0 0 #F00;}
+	60% { color: #991100; font-size: 22pt; text-shadow: blue; }
+	80% { color: #ff0000; font-size: 24pt;  }
+	90% { color: #22dd22; font-size: 16pt;}
+	100% { color: #fff; font-size: 40pt; background-color: #000;  border-radius: 50%; text-shadow: 0 0 #F00; transform: scale(2) translate(50px, 50px) rotate(10deg);}
+}
+
+.color-change {
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    -webkit-animation-name: example; /* Safari */
+    -webkit-animation-duration: 5s; /* Safari */    
+    animation-name: example;
+    animation-duration: 5s;
+}
+
+/* Safari */
+@-webkit-keyframes example {
+    from {background-color: red;}
+    to {background-color: yellow;}
+}
+
+/* Standard syntax */
+@keyframes example {
+    from {background-color: red;}
+    to {background-color: yellow;}
+}
+
+/* Responsive images */
+
+.example {
+	background: url("phone.jpg") no-repeat;
+	background-size: cover;
+}
+
+@media screen and (min-width: 500px) {
+
+	.example {
+	 background: url("tablet.jpg") no-repeat;
+	 background-size: cover;
+	}
+}
+
+/* flexbox */
+
+
+.flexbox #flexbox1 {
+	margin-top: 20px;
+	display: -ms-flexbox;
+	width: 100%;
+	border: 1px solid grey;
+	-ms-flex-pack: distribute;
+	/*-ms-flex-wrap: wrap;*/
+	}
+.flexbox #flexbox1 > div {
+	min-width: 80px; min-height: 80px;
+	border:1px solid grey
+	}
+.flexbox #flexbox1 > div:nth-child(1) {
+	background-color: red;
+	/*-ms-flex: 1 0 auto;*/
+}
+.flexbox #flexbox1 > div:nth-child(2) {
+	background-color: blue;
+	/*-ms-flex: 1 0 auto;*/
+}
+
+.flexbox #flexbox1 > div:nth-child(3) {
+	background-color: green;
+}
+
+
+

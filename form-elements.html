@@ -1,0 +1,128 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request To Cross Bridge</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap-theme.css">
+
+    <style type="text/css">
+
+      body {
+        background-color: #eee;
+      }
+
+      input:invalid {
+        border-color: #b94a48;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+      }
+
+      input:valid {
+        border-color: #468847;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+      }
+
+    </style>
+
+  </head>
+  <body>
+    <div class="container">
+
+      <form class="form-bridge">
+        <h2>Before you may cross the bridge, you must answer these questions!</h2>
+        <div class="form-group">
+          <label for="first_last">Who comes to office before time ?</label>
+          <input type="text" class="form-control" id="first_last" placeholder="First Last" required autofocus autocomplete="on">
+          <span class="help-block"></span>
+        </div>
+        <div class="form-group">
+          <label for="email_addr">WHAT, is Dharmender's email address?</label>
+          <input type="email" class="form-control" id="email_addr" placeholder="Email address" required>
+          <span class="help-block"></span>
+        </div>
+        <div class="form-group">
+          <label for="email_addr_confirm">Confirm Dharmender's Email</label>
+          <input type="email" class="form-control" id="email_addr_confirm" placeholder="Confirm email address" required autocomplete="off">
+          <span class="help-block"></span>
+        </div>
+        <div class="form-group">
+          <label for="fav_website">Which website Ramani mostly uses ?</label>
+          <input type="url" class="form-control" id="fav_website" placeholder="Favorite website" required>
+          <span class="help-block"></span>
+        </div>
+        <div class="form-group">
+          <label for="fav_pizza">WHAT, is the landline number of Atlogys?</label>
+          <input type="tel" class="form-control" id="fav_pizza" placeholder="+1-416-967-1111">
+          <span class="help-block"></span>
+        </div>
+        <div class="form-group">
+          <label for="dob">When did we last went for the party ? (Sorry Sir)</label>
+          <input type="date" class="form-control" id="dob">
+          <span class="help-block"></span>
+        </div>
+        <div class="form-group">
+          <label for="age">How old is Rajiv Sir ?</label>
+          <input type="number" class="form-control" id="age" placeholder="Age" min="40" max="55" required>
+          <span class="help-block"></span>
+        </div>
+        <div class="form-group">
+          <label for="color">Which dress color do you want to buy from Myntra ? Yamini</label>
+          <input type="color" class="form-control" id="color">
+          <span class="help-block"></span>
+        </div>
+        <div class="form-group">
+          <label for="chocolate">Which food we mostly eat in office hours ?</label>
+          <input type="text" class="form-control" id="chocolate" list="chocType">
+          <span class="help-block"></span>
+          <datalist id="chocType">
+            <option value="Pizza" />
+            <option value="Momoz" />
+            <option value="Potato Chips" />
+            <option value="Biscuits" />
+          </datalist>
+        </div>
+        <div class="form-group">
+          <label for="part_number">WHAT, is the part number of a <a href="http://goo.gl/0CNgfD">3/4" Philips Head machine screw</a>?</label>
+          <input type="text" class="form-control" id="part_number" placeholder="XXX9999XX" pattern="[A-Z,a-z]{3}[0-9]{4}[A-Z,a-z]{2}">
+          <span class="help-block"></span>
+        </div>
+        <div class="form-group">
+          <label for="airspeed_velocity">Rate, from 1 to 10 (Work load in office)? <span id="asv">1</span> (m/s)</label>
+          <input type="range" class="form-control" id="airspeed_velocity" min="1" max="10" step="1" value="1">
+          <span class="help-block"></span>
+        </div>
+
+        
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Cross the bridge</button>
+      </form>
+
+    </div> <!-- /container -->
+
+    <script type="text/javascript">
+      document.getElementById("email_addr_confirm").addEventListener("input", verifyEmail);
+      document.getElementById("airspeed_velocity").addEventListener("input", showAirspeed);
+
+      function verifyEmail(input) {
+        input = input.srcElement;
+        if (input.value != document.getElementById('email_addr').value) {
+          input.setCustomValidity('The two email addresses must match.');
+        } else {
+          input.setCustomValidity('');
+        }
+        input.nextElementSibling.innerText = input.validationMessage;
+      }
+
+      function showAirspeed(input) {
+        input = input.srcElement;
+        document.getElementById("asv").innerText = input.valueAsNumber;
+      }
+
+    </script>
+  </body>
+</html>
